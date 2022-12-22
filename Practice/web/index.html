@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"/>
+    </head>
+    <body>
+        <div class="container ui equal width  form success">
+            <h1>My Form</h1>
+            <form action="RegisterServlet" method="post">
+                <div class="six field wide">
+                    <label>Username</label>
+                    <input type="text" name="userName" placeholder="JohnDoe" />
+                </div>
+                <div class="six field wide">
+                    <label>Email</label>
+                    <input type="text" name="userEmail" placeholder="johndoe@example.com" />
+                </div>
+                <div class="six field wide">
+                    <label>Password</label>
+                    <input type="password" name="userPassword" placeholder="********" />
+                </div>
+                <div class="six field wide">
+                    <label>Select a Course</label>
+                    <select class="ui search dropdown" name="userCourse">
+                        <option value="">-</option>
+                        <option value="java">Java</option>
+                        <option value="python">Python</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="typescript">TypeScript</option>
+                    </select>
+                </div>
+                <div class="six field wide">
+                    <label>Gender</label>
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="userGender" value="male">
+                        <label>Male</label>
+                    </div> &nbsp;
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="userGender" value="female">
+                        <label>Female</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" tabindex="0" value="checked" name="condition">
+                        <label>I agree to the Terms and Conditions</label>
+                    </div>
+                </div>
+                <div class="ui buttons">
+                <button class="ui positive button" type="submit">Submit</button>
+                <div class="or"></div>
+                <button class="ui negative button" type="reset">Discard</button>
+                </div>
+            </form>
+        </div>   
+    </body>
+</html>
+
+
+<!--<table>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" name="userName" placeholder="JohnDoe" /></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="text" name="userEmail" placeholder="johndoe@example.com" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="userPassword" placeholder="********" /></td>
+                    </tr>
+                    <tr>
+                        <td>Gender:</td>
+                        <td><input type="radio" name="userGender" value="male">Male &nbsp; 
+                        <input type="radio" name="userGender" value="female">Female</td>
+                    </tr>
+                    <tr>
+                        <td>Select Course:</td>
+                                <td>
+                                    <select name="userCourse">
+                                        <option value=null>--</option>
+                                        <option value="java">Java</option>
+                                        <option value="python">Python</option>
+                                        <option value="javascript">JavaScript</option>
+                                        <option value="typescript">TypeScript</option>
+                                    </select>
+                                </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;"><input type="checkbox" name="condition"></td>
+                        <td>I agree to all terms and conditions</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="ui button" type="submit">Submit</button></td>
+                        <td><button class="ui button" type="reset">Reset</button></td>
+                    </tr>
+                </table> -->
