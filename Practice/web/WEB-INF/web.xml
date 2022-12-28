@@ -4,14 +4,32 @@
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	 version="3.1">
+    
+    <welcome-file-list>
+        <welcome-file>home.html</welcome-file>
+    </welcome-file-list>
+    
+    
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.practice.RegisterServlet</servlet-class>
     </servlet>
     
+    <servlet>
+        <servlet-name>SuccessServlet</servlet-name>
+        <servlet-class>com.practice.SuccessServlet</servlet-class>
+    </servlet>
+    
+    
+    
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/RegisterServlet</url-pattern>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>SuccessServlet</servlet-name>
+        <url-pattern>/success</url-pattern>
     </servlet-mapping>
     
     <session-config>

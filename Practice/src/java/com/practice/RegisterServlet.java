@@ -32,8 +32,26 @@ public class RegisterServlet extends HttpServlet {
             out.println("<h2> password: " + password + "</h2>");
             out.println("<h2> course: " + course + "</h2>");
             out.println("<h2> gender: " + gender + "</h2>");
+            
+            
+            // save to DB.
+            RequestDispatcher dispatcher = req.getRequestDispatcher("success");
+            
+            // forward()
+            dispatcher.forward(req, res);
+            
+            
         } else {
-            out.println("<h2>Terms and Conditions not accepted</h2>");
+            out.println("<h2>Some fields are empty...</h2>");
+            
+            // include output of index.html
+            
+            // Get object of RequestDispatcher
+            RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
+            
+            // include()
+            
+            dispatcher.include(req, res);
         }
     } 
 }
