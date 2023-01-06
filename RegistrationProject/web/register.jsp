@@ -9,8 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Registration Project</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <style>
             html {
                 width: 100%;
@@ -48,6 +49,26 @@
                     </div>
                 </div>
 
+                <div class="field">
+                    <label class="label">Profile Picture</label>
+                    <div id="uploader" class="file is-small is-warning has-name is-boxed">
+                        <label class="file-label">
+                            <input class="file-input" type="file" name="image">
+                            <span class="file-cta">
+                                <span class="file-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </span>
+                                <span class="file-msg file-label">
+                                    choose a file…
+                                </span>
+                            </span>
+                            <span class="file-name">
+                                No file selected
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
 
 
                 <div class="field is-grouped">
@@ -79,13 +100,29 @@
         crossorigin="anonymous"></script>
 
         <script>
+            const fileInput = document.querySelector('#uploader input[type=file]');
+            fileInput.onchange = () => {
+                if (fileInput.files.length > 0) {
+                    const fileName = document.querySelector('#uploader .file-name');
+                    fileName.textContent = fileInput.files[0].name;
+                    const fileLabel = document.querySelector("#uploader .file-msg");
+                    fileLabel.textContent = "File Selected";
+                    $("#uploader").removeClass("is-warning").addClass("is-success");
+                }
+            }
+        </script>
+
+        <script>
             $(document).ready(function () {
                 console.log("JQuery mounted and ready.");
 
                 $("#userform").on('submit', function (event) {
                     event.preventDefault();
 
-                    let formData = $(this).serialize();
+//                    let formData = $(this).serialize();
+
+                    let formData = new FormData(this);
+                    console.log(formData);
 
                     $(".waiter").show();
                     $("#userform").hide();
@@ -96,30 +133,29 @@
                         data: formData,
                         type: 'POST',
                         success: function (data, textStatus, jqXHR) {
-                            console.log(data);
-                            console.log("success");
                             $(".waiter").hide();
                             $("#userform").show();
                             $("#userform")[0].reset();
-                            if(data.trim() == "Success") {
-                               $("#success-msg").show(); 
+                            console.log(data);
+                            if (data.trim() == "Success") {
+                                $("#success-msg").show();
                             }
                             setTimeout(function () {
                                 $("#success-msg").hide();
                             }, 1500);
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
-                            console.log(data);
-                            console.log("error...");
                             $(".waiter").hide();
                             $("#userform").show();
-                            if(data.trim() == "Error") {
-                               $("#success-msg").html('Registration Failed').removeClass("has-text-success").addClass("has-text-danger").show(); 
+                            if (data.trim() == "Error") {
+                                $("#success-msg").html('Registration Failed').removeClass("has-text-success").addClass("has-text-danger").show();
                             }
                             setTimeout(function () {
                                 $("#success-msg").hide();
                             }, 1500);
-                        }
+                        },
+                        contentType: false,
+                        processData: false
                     })
                 })
             });
