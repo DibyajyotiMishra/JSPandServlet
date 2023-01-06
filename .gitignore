@@ -7,3 +7,11 @@
 /SessionTracking/nbproject/private/
 /SessionTracking/build/
 /SessionTracking/dist/
+/RegistrationProject/nbproject/private/
+/RegistrationProject/build/
+/RegistrationProject/dist/
+
+
+
+
+*.jar
