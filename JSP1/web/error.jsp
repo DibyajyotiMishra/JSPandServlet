@@ -19,6 +19,8 @@
     <body>
         <div style="padding: 20px; background: #03203C; color: #F4BE2C;">
             <h1>Sorry! Something went wrong...</h1>
+            
+            <p>Error: <%= exception %> </p>
         </div>
     </body>
 </html>

@@ -20,5 +20,7 @@
         <c:set var="name" value="Babul"></c:set>
         
         <c:out value="${name}"></c:out>
+        
+        
     </body>
 </html>
